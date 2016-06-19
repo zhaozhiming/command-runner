@@ -1,7 +1,9 @@
 import Hapi from 'hapi';
 import h2o2 from 'h2o2';
 import inert from 'inert';
-import { exec } from 'child_process';
+import main from './handlers/main';
+import staticFiles from './handlers/staticFiles';
+import commandRun from './handlers/commandRun';
 
 
 /**
@@ -19,64 +21,9 @@ server.register(
 );
 
 server.route([
-  {
-    method: ['GET'],
-    path: '/',
-
-    config: {
-      auth: false,
-      handler(request, reply) {
-        const webserver = process.env.NODE_ENV === 'production' ? '' : `//${host}:8080`;
-
-        return reply(
-          `<!doctype html>
-          <html lang="en-us">
-            <head>
-              <meta charset="utf-8">
-              <title>hapi_play</title>
-              <link href="${webserver}/assets/app.css" rel="stylesheet"/>
-            </head>
-            <body>
-              <div id="app"></div>
-              <script src="${webserver}/assets/app.js"></script>
-            </body>
-          </html>`
-        );
-      },
-    },
-  },
-  { method: 'GET', path: '/assets/{filename*}',
-    config: {
-      auth: false,
-      handler: {
-        file: (request) => {
-          let assetsPath = `dist${request.path}`;
-          if (process.env.NODE_ENV === 'production') {
-            assetsPath = `.${request.path}`;
-          }
-          return assetsPath;
-        },
-      },
-    },
-  },
-  {
-    method: 'POST',
-    path: '/command/run',
-    config: {
-      auth: false,
-      handler(request, reply) {
-        const { command } = JSON.parse(request.payload);
-        exec(command, (error, stdout, stderr) => {
-          console.log(`stdout: ${stdout}`);
-          console.log(`stderr: ${stderr}`);
-          if (error !== null) {
-            console.log(`error: ${error}`);
-          }
-          reply({ result: stdout && stdout.trim() });
-        });
-      },
-    },
-  },
+  main,
+  staticFiles,
+  commandRun,
 ]);
 
 export function runServer() {
