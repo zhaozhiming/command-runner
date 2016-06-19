@@ -33,7 +33,7 @@ class Command extends Component {
   }
 
   handleClick() {
-    this.context.fooActions.changeName(this.state.command);
+    this.context.fooActions.runCommand(this.state.command);
   }
 
   render() {
