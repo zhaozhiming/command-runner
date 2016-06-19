@@ -4,9 +4,8 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as FooActions from 'containers/Foo/actions';
-import Name from 'components/Name';
 import Header from './components/Header';
-import Message from './components/Message';
+import Command from './components/Command';
 
 
 function mapStateToProps(state) {
@@ -38,13 +37,11 @@ class Foo extends Component {
   }
 
   render() {
-    const { name, message } = this.props.foo.toJS();
     return (
       <div className={style.content}>
         <Header title="World" />
         <div className={style.main} >
-          <Name name={name} fooActions={this.props.fooActions} />
-          <Message message={message} />
+          <Command />
         </div>
       </div>
     );

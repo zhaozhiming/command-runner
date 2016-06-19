@@ -1,5 +1,5 @@
 {
   "name": "Command",
-  "main": "./Command.jsx",
+  "main": "./Command.js",
   "private": true
 }
