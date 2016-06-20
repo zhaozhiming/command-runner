@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as FooActions from 'containers/Foo/actions';
 import Header from './components/Header';
 import Command from './components/Command';
+import CommandResult from './components/CommandResult';
 
 
 function mapStateToProps(state) {
@@ -42,6 +43,8 @@ class Foo extends Component {
         <Header title="World" />
         <div className={style.main} >
           <Command />
+          <div className={style.division}></div>
+          <CommandResult />
         </div>
       </div>
     );
