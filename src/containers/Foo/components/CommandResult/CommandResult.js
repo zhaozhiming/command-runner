@@ -2,6 +2,7 @@ import style from './style.css';
 
 import classnames from 'classnames';
 import React, { Component, PropTypes } from 'react';
+import * as sc from 'constants/status';
 
 
 class CommandResult extends Component {
@@ -23,7 +24,7 @@ class CommandResult extends Component {
 
   render() {
     const { className } = this.props;
-    const { command, result } = this.context.foo.toJS();
+    const { command, resultStatus, result } = this.context.foo.toJS();
 
     return (
       <div
@@ -34,7 +35,12 @@ class CommandResult extends Component {
         <h2>命令: {command}</h2>
         <h2>结果: </h2>
         <div className={style.content}>
-          <code>{result}</code>
+          <code
+            className={classnames(
+              resultStatus === sc.COMMAND_RUN_STATUS_SUCCESS ? '' : style.error)}
+          >
+            {result}
+          </code>
         </div>
       </div>
     );

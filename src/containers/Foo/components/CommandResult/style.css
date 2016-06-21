@@ -8,3 +8,7 @@
   margin-left: 50px;
   white-space:pre-wrap;
 }
+
+.result .content .error {
+  color: red;
+}
