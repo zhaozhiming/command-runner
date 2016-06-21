@@ -10,7 +10,7 @@ export default {
         <html lang="en-us">
           <head>
             <meta charset="utf-8">
-            <title>hapi_play</title>
+            <title>Command Runner</title>
             <link href="${webserver}/assets/app.css" rel="stylesheet"/>
           </head>
           <body>
