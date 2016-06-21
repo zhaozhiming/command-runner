@@ -7,3 +7,10 @@
 - [x] when result is list, split them
 - [x] change main header
 - [x] rename Foo to Main
+
+### USAGE
+
+* npm install (use node 6.0.0)
+* npm start
+
+Enjoy!  
