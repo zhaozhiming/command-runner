@@ -26,6 +26,7 @@ class Command extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeydown = this.handleKeydown.bind(this);
   }
 
   handleChange(event) {
@@ -34,6 +35,12 @@ class Command extends Component {
 
   handleClick() {
     this.context.fooActions.runCommand(this.state.command);
+  }
+
+  handleKeydown(e) {
+    if (e.which === 13) {
+      this.context.fooActions.runCommand(this.state.command);
+    }
   }
 
   render() {
@@ -48,6 +55,7 @@ class Command extends Component {
           placeholder="Input Liux Command..."
           className={style.command} value={this.state.command}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeydown}
         />
         <Button onClick={this.handleClick} >Go!</Button>
       </div>

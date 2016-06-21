@@ -40,7 +40,7 @@ class Foo extends Component {
   render() {
     return (
       <div className={style.content}>
-        <Header title="World" />
+        <Header />
         <div className={style.main} >
           <Command />
           <div className={style.division}></div>
