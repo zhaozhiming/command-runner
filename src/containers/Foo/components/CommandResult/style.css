@@ -1,0 +1,10 @@
+.result {
+  float: left;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.result .content {
+  margin-left: 50px;
+  white-space:pre-wrap;
+}

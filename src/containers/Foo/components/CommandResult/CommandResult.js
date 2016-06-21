@@ -28,9 +28,14 @@ class CommandResult extends Component {
     return (
       <div
         style={this.props.style}
-        className={classnames(...className.split(), style.commandresult)}
+        className={classnames(...className.split(), style.result)}
       >
-      命令 {command} 执行结果: {result}
+        <h1>命令执行结果</h1>
+        <h2>命令: {command}</h2>
+        <h2>结果: </h2>
+        <div className={style.content}>
+          <code>{result}</code>
+        </div>
       </div>
     );
   }
