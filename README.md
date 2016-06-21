@@ -12,5 +12,6 @@
 
 * npm install (use node 6.0.0)
 * npm start
+* npm test (option)
 
 Enjoy!  

@@ -3,7 +3,7 @@ import * as sc from 'constants/status';
 
 export default {
   method: 'POST',
-  path: '/command/run',
+  path: '/api/command/run',
   config: {
     handler(request, reply) {
       const { command } = JSON.parse(request.payload);
