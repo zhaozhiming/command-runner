@@ -8,7 +8,7 @@ const INITIAL_STATE = immutable.fromJS({
   result: '',
 });
 
-export default function foo(state = INITIAL_STATE, action) {
+export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case at.RECEIVE_COMMAND_RESULT:
       return state

@@ -12,8 +12,8 @@ class CommandResult extends Component {
   };
 
   static contextTypes = {
-    foo: PropTypes.object,
-    fooActions: PropTypes.object,
+    main: PropTypes.object,
+    actions: PropTypes.object,
   };
 
   static defaultProps = {
@@ -24,7 +24,7 @@ class CommandResult extends Component {
 
   render() {
     const { className } = this.props;
-    const { command, resultStatus, result } = this.context.foo.toJS();
+    const { command, resultStatus, result } = this.context.main.toJS();
 
     return (
       <div

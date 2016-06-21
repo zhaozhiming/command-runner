@@ -12,7 +12,7 @@ class Command extends Component {
   };
 
   static contextTypes = {
-    fooActions: PropTypes.object,
+    actions: PropTypes.object,
   };
 
   static defaultProps = {
@@ -34,12 +34,12 @@ class Command extends Component {
   }
 
   handleClick() {
-    this.context.fooActions.runCommand(this.state.command);
+    this.context.actions.runCommand(this.state.command);
   }
 
   handleKeydown(e) {
     if (e.which === 13) {
-      this.context.fooActions.runCommand(this.state.command);
+      this.context.actions.runCommand(this.state.command);
     }
   }
 

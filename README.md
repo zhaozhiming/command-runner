@@ -6,4 +6,4 @@
 - [x] command run error message
 - [x] when result is list, split them
 - [x] change main header
-- [] rename Foo to Main
+- [x] rename Foo to Main

@@ -3,38 +3,38 @@ import style from './style.css';
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as FooActions from 'containers/Foo/actions';
+import * as Actions from 'containers/Main/actions';
 import Header from './components/Header';
 import Command from './components/Command';
 import CommandResult from './components/CommandResult';
 
 
 function mapStateToProps(state) {
-  const { foo } = state;
-  return { foo };
+  const { main } = state;
+  return { main };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fooActions: bindActionCreators(FooActions, dispatch),
+    actions: bindActionCreators(Actions, dispatch),
   };
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-class Foo extends Component {
+class Main extends Component {
   static propTypes = {
-    foo: PropTypes.object.isRequired,
-    fooActions: PropTypes.object.isRequired,
+    main: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
   };
 
   static childContextTypes = {
-    foo: PropTypes.object,
-    fooActions: PropTypes.object,
+    main: PropTypes.object,
+    actions: PropTypes.object,
   };
 
   getChildContext() {
-    const { foo, fooActions } = this.props;
-    return { foo, fooActions };
+    const { main, actions } = this.props;
+    return { main, actions };
   }
 
   render() {
@@ -51,4 +51,4 @@ class Foo extends Component {
   }
 }
 
-export default Foo;
+export default Main;
