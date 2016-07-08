@@ -7,6 +7,8 @@
 - [x] when result is list, split them
 - [x] change main header
 - [x] rename Foo to Main
+- [ ] can run `tail` command
+- [ ] can run `vim` command
 
 ### USAGE
 
@@ -14,4 +16,4 @@
 * npm start
 * npm test (option)
 
-Enjoy!  
+Enjoy!
